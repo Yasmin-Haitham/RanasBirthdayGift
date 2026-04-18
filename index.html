@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, My Sunflower 🌻</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='18' fill='%238B4513'/><circle cx='50' cy='50' r='12' fill='%23654010'/><ellipse cx='50' cy='20' rx='9' ry='16' fill='%23F5C518' transform='rotate(0 50 50)'/><ellipse cx='50' cy='20' rx='9' ry='16' fill='%23F5C518' transform='rotate(45 50 50)'/><ellipse cx='50' cy='20' rx='9' ry='16' fill='%23F5C518' transform='rotate(90 50 50)'/><ellipse cx='50' cy='20' rx='9' ry='16' fill='%23F5C518' transform='rotate(135 50 50)'/><ellipse cx='50' cy='20' rx='9' ry='16' fill='%23EAB010' transform='rotate(22.5 50 50)'/><ellipse cx='50' cy='20' rx='9' ry='16' fill='%23EAB010' transform='rotate(67.5 50 50)'/><ellipse cx='50' cy='20' rx='9' ry='16' fill='%23EAB010' transform='rotate(112.5 50 50)'/><ellipse cx='50' cy='20' rx='9' ry='16' fill='%23EAB010' transform='rotate(157.5 50 50)'/><circle cx='50' cy='90' r='5' fill='%234a7c3f'/><rect x='47' y='65' width='6' height='28' fill='%234a7c3f'/></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a2744'/><circle cx='50' cy='48' r='18' fill='%238B4513'/><circle cx='50' cy='48' r='12' fill='%23654010'/><ellipse cx='50' cy='18' rx='9' ry='16' fill='%23F5C518' transform='rotate(0 50 48)'/><ellipse cx='50' cy='18' rx='9' ry='16' fill='%23F5C518' transform='rotate(45 50 48)'/><ellipse cx='50' cy='18' rx='9' ry='16' fill='%23F5C518' transform='rotate(90 50 48)'/><ellipse cx='50' cy='18' rx='9' ry='16' fill='%23F5C518' transform='rotate(135 50 48)'/><ellipse cx='50' cy='18' rx='9' ry='16' fill='%23EAB010' transform='rotate(22.5 50 48)'/><ellipse cx='50' cy='18' rx='9' ry='16' fill='%23EAB010' transform='rotate(67.5 50 48)'/><ellipse cx='50' cy='18' rx='9' ry='16' fill='%23EAB010' transform='rotate(112.5 50 48)'/><ellipse cx='50' cy='18' rx='9' ry='16' fill='%23EAB010' transform='rotate(157.5 50 48)'/><rect x='47' y='66' width='6' height='20' fill='%234a7c3f'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C8963E;
+    --gold-light: #E8B86D;
+    --gold-pale: #FDF6E3;
+    --ink: #1C1208;
+    --ink-mid: #3D2E10;
+    --ink-soft: #6B5230;
+    --cream: #FAF3E0;
+    --cream-dark: #F0E6C8;
+    --blue-night: #1A2744;
+    --blue-mid: #2D4A7A;
+    --blue-light: #4A7BC4;
+    --sunflower: #F5C518;
+    --green-field: #4A7C3F;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--cream); color:var(--ink); font-family:'Lora',serif; overflow-x:hidden; }
+
+  /* HERO */
+  .hero { min-height:100vh; background:var(--blue-night); position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+  .starry-canvas { position:absolute; inset:0; width:100%; height:100%; }
+  .hero-content { position:relative; z-index:10; text-align:center; padding:2rem; max-width:700px; }
+  .from-label { font-family:'DM Sans',sans-serif; font-size:.75rem; font-weight:500; letter-spacing:.25em; text-transform:uppercase; color:var(--gold-light); margin-bottom:1.5rem; opacity:0; animation:fadeUp 1s ease .3s forwards; }
+  .hero-title { font-family:'Playfair Display',serif; font-size:clamp(2.8rem,7vw,5.5rem); font-weight:400; font-style:italic; color:#fff; line-height:1.15; margin-bottom:.5rem; opacity:0; animation:fadeUp 1s ease .6s forwards; }
+  .hero-title span { color:var(--sunflower); }
+  .hero-subtitle { font-family:'Playfair Display',serif; font-size:clamp(1rem,2.5vw,1.35rem); font-style:italic; color:var(--gold-light); margin-bottom:2.5rem; opacity:0; animation:fadeUp 1s ease .9s forwards; }
+  .scroll-hint { font-family:'DM Sans',sans-serif; font-size:.8rem; letter-spacing:.15em; text-transform:uppercase; color:rgba(255,255,255,.45); opacity:0; animation:fadeUp 1s ease 1.4s forwards; }
+  .scroll-arrow { display:block; margin:.5rem auto 0; width:1px; height:40px; background:linear-gradient(to bottom,rgba(255,255,255,.5),transparent); animation:pulse 2s ease-in-out 2s infinite; }
+
+  /* LETTER SECTION */
+  .letter-section { background:var(--gold-pale); padding:5rem 2rem; position:relative; }
+  .letter-section::before { content:''; position:absolute; top:0; left:0; right:0; height:6px; background:repeating-linear-gradient(90deg,var(--gold) 0,var(--gold) 20px,transparent 20px,transparent 30px); }
+  .letter-wrap { max-width:620px; margin:0 auto; background:#fff; border:1px solid var(--cream-dark); padding:3.5rem 3.5rem 3rem; position:relative; box-shadow:4px 4px 0 var(--cream-dark); }
+  .letter-wrap::before { content:'✦'; position:absolute; top:1.2rem; right:1.5rem; color:var(--gold-light); font-size:1.2rem; }
+  .letter-date { font-family:'DM Sans',sans-serif; font-size:.75rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:1.5rem; }
+  .letter-salutation { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:600; color:var(--ink-mid); margin-bottom:1.25rem; }
+  .letter-body { font-family:'Lora',serif; font-size:1rem; line-height:1.9; color:var(--ink-soft); }
+  .letter-body p { margin-bottom:1rem; }
+  .letter-sig { font-family:'Playfair Display',serif; font-size:1.1rem; font-style:italic; color:var(--gold); margin-top:1.5rem; }
+
+  /* SECTION HEADERS */
+  .section-label { font-family:'DM Sans',sans-serif; font-size:.7rem; font-weight:500; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); margin-bottom:.5rem; text-align:center; }
+  .section-title { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,4vw,2.8rem); font-weight:400; text-align:center; color:var(--ink-mid); margin-bottom:.5rem; line-height:1.2; }
+  .section-divider { display:flex; align-items:center; justify-content:center; gap:.75rem; margin:1rem auto 3rem; max-width:200px; }
+  .section-divider::before,.section-divider::after { content:''; flex:1; height:1px; background:var(--gold-light); }
+  .divider-gem { width:6px; height:6px; background:var(--gold); transform:rotate(45deg); flex-shrink:0; }
+
+  /* GUIDE */
+  .guide-section { padding:5rem 2rem; background:var(--cream); }
+  .intro-quote { max-width:580px; margin:0 auto 4rem; text-align:center; font-family:'Playfair Display',serif; font-size:1.15rem; font-style:italic; color:var(--ink-soft); line-height:1.8; padding:0 1rem; position:relative; }
+  .intro-quote::before { content:'\201C'; font-size:5rem; color:var(--gold-light); position:absolute; top:-1.5rem; left:-.5rem; font-family:'Playfair Display',serif; line-height:1; opacity:.5; }
+  .works-grid { max-width:900px; margin:0 auto; display:grid; grid-template-columns:1fr; gap:2rem; }
+  .work-card { display:grid; grid-template-columns:140px 1fr; gap:0; background:#fff; border:1px solid var(--cream-dark); overflow:hidden; transition:transform .3s ease,box-shadow .3s ease; }
+  .work-card:hover { transform:translateY(-3px); box-shadow:0 8px 30px rgba(200,150,62,.15); }
+  .work-thumb { width:140px; min-height:160px; display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden; }
+  .work-info { padding:1.5rem 1.75rem; }
+  .work-year { font-family:'DM Sans',sans-serif; font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:.4rem; }
+  .work-title { font-family:'Playfair Display',serif; font-size:1.25rem; font-weight:600; color:var(--ink); margin-bottom:.75rem; line-height:1.3; }
+  .work-desc { font-family:'Lora',serif; font-size:.9rem; line-height:1.75; color:var(--ink-soft); margin-bottom:1rem; }
+  .work-prompt { font-family:'DM Sans',sans-serif; font-size:.8rem; color:var(--blue-mid); background:#EEF3FB; padding:.6rem .85rem; border-left:3px solid var(--blue-light); line-height:1.5; }
+  .work-prompt::before { content:'✦ '; color:var(--blue-light); }
+  .fun-fact-tag { display:inline-block; font-family:'DM Sans',sans-serif; font-size:.68rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); border:1px solid var(--gold-light); padding:.2rem .55rem; margin-bottom:.5rem; }
+  .starry-night-thumb { background:linear-gradient(160deg,#0d1b3e 0%,#1e3266 40%,#0a0f2b 100%); }
+  .sunflowers-thumb { background:linear-gradient(160deg,#c8963e 0%,#e8b86d 50%,#8b6820 100%); }
+  .cafe-thumb { background:linear-gradient(160deg,#1a1a3e 0%,#2d2d6b 40%,#0d0d2b 100%); }
+  .bedroom-thumb { background:linear-gradient(160deg,#5b8dd9 0%,#3a6fc4 50%,#2356a8 100%); }
+  .irises-thumb { background:linear-gradient(160deg,#4a6741 0%,#6b9e61 50%,#2e4828 100%); }
+  .wheatfield-thumb { background:linear-gradient(160deg,#c4a235 0%,#d4b84a 40%,#7a5f10 100%); }
+
+  /* TRIVIA */
+  .trivia-section { background:var(--blue-night); padding:4rem 2rem; }
+  .trivia-grid { max-width:900px; margin:3rem auto 0; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.5rem; }
+  .trivia-card { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); padding:1.5rem; transition:background .3s ease; }
+  .trivia-card:hover { background:rgba(255,255,255,.09); }
+  .trivia-number { font-family:'Playfair Display',serif; font-size:2.5rem; font-weight:600; color:var(--sunflower); line-height:1; margin-bottom:.5rem; }
+  .trivia-label { font-family:'DM Sans',sans-serif; font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.4); margin-bottom:.5rem; }
+  .trivia-text { font-family:'Lora',serif; font-size:.9rem; line-height:1.7; color:rgba(255,255,255,.75); }
+
+  /* ADVENTURE MAP */
+  .adventure-section { padding:5rem 2rem; background:var(--gold-pale); position:relative; }
+  .adventure-section::before { content:''; position:absolute; top:0; left:0; right:0; height:6px; background:repeating-linear-gradient(90deg,var(--gold) 0,var(--gold) 20px,transparent 20px,transparent 30px); }
+  .timeline { max-width:680px; margin:0 auto; position:relative; }
+  .timeline::before { content:''; position:absolute; left:30px; top:0; bottom:0; width:1px; background:linear-gradient(to bottom,var(--gold),transparent); }
+  .timeline-step { display:grid; grid-template-columns:60px 1fr; gap:1.5rem; margin-bottom:2.5rem; position:relative; }
+  .step-dot { width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.5rem; flex-shrink:0; position:relative; z-index:2; border:2px solid; }
+  .step-dot.art { background:var(--blue-night); border-color:var(--blue-mid); }
+  .step-dot.food { background:#1a100a; border-color:#6b3520; }
+  .step-dot.mystery { background:#0a0a14; border-color:#3a3a5a; }
+  .step-content { background:#fff; border:1px solid var(--cream-dark); padding:1.5rem 1.75rem; position:relative; }
+  .step-content::before { content:''; position:absolute; left:-8px; top:20px; width:14px; height:14px; background:#fff; border-left:1px solid var(--cream-dark); border-bottom:1px solid var(--cream-dark); transform:rotate(45deg); }
+  .step-tag { font-family:'DM Sans',sans-serif; font-size:.65rem; font-weight:500; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); margin-bottom:.4rem; }
+  .step-name { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:600; color:var(--ink); margin-bottom:.5rem; }
+  .step-desc { font-family:'Lora',serif; font-size:.88rem; line-height:1.7; color:var(--ink-soft); }
+
+  /* QUIZ */
+  .quiz-section { padding:5rem 2rem; background:var(--cream); }
+  .quiz-box { max-width:640px; margin:0 auto; }
+  .quiz-intro { text-align:center; font-family:'Lora',serif; font-style:italic; color:var(--ink-soft); font-size:1rem; line-height:1.8; margin-bottom:3rem; max-width:480px; margin-left:auto; margin-right:auto; }
+  .q-block { margin-bottom:2rem; }
+  .q-text { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:600; color:var(--ink-mid); margin-bottom:1rem; line-height:1.4; }
+  .q-options { display:flex; gap:.75rem; flex-wrap:wrap; }
+  .q-btn { font-family:'DM Sans',sans-serif; font-size:.82rem; letter-spacing:.05em; padding:.65rem 1.2rem; border:1px solid var(--cream-dark); background:#fff; color:var(--ink-soft); cursor:pointer; transition:all .25s ease; flex:1; min-width:120px; text-align:center; }
+  .q-btn:hover { border-color:var(--gold); color:var(--gold); }
+  .q-btn.selected { background:var(--ink); color:var(--sunflower); border-color:var(--ink); }
+  .quiz-divider { height:1px; background:var(--cream-dark); margin:1.5rem 0; }
+  .tally-bar { display:flex; gap:1.5rem; margin-bottom:2rem; padding:1rem 1.25rem; background:var(--gold-pale); border:1px solid var(--cream-dark); align-items:center; flex-wrap:wrap; }
+  .tally-label { font-family:'DM Sans',sans-serif; font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; color:var(--ink-soft); }
+  .tally-count { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:600; color:var(--ink); }
+  .tally-name { font-family:'DM Sans',sans-serif; font-size:.78rem; color:var(--ink-soft); }
+  .tally-sep { width:1px; height:36px; background:var(--cream-dark); }
+  .reveal-result { display:none; }
+  .reveal-result.visible { display:block; animation:fadeUp .5s ease forwards; }
+  .result-card { background:var(--ink); color:#fff; padding:2.5rem 2rem; text-align:center; position:relative; }
+  .result-card::after { content:''; position:absolute; inset:8px; border:1px solid rgba(255,255,255,.15); pointer-events:none; }
+  .result-emoji { font-size:2.5rem; display:block; margin-bottom:.75rem; }
+  .result-name { font-family:'Playfair Display',serif; font-size:2rem; font-style:italic; color:var(--sunflower); margin-bottom:.5rem; }
+  .result-tag { font-family:'DM Sans',sans-serif; font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold-light); margin-bottom:1rem; }
+  .result-desc { font-family:'Lora',serif; font-size:.95rem; line-height:1.8; color:rgba(255,255,255,.8); }
+  .result-info { font-family:'DM Sans',sans-serif; font-size:.82rem; color:rgba(255,255,255,.45); margin-top:1rem; letter-spacing:.05em; }
+  .reveal-btn-main { display:block; width:100%; margin-top:2rem; padding:1rem; background:transparent; border:1px solid var(--gold); font-family:'DM Sans',sans-serif; font-size:.78rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); cursor:pointer; transition:all .3s ease; }
+  .reveal-btn-main:hover { background:var(--gold); color:var(--ink); }
+  .reset-btn { display:block; margin:1rem auto 0; background:transparent; border:none; font-family:'DM Sans',sans-serif; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.3); cursor:pointer; padding:.5rem; }
+  .reset-btn:hover { color:rgba(255,255,255,.6); }
+
+  /* SEALED LETTERS */
+  .letters-section { padding:5rem 2rem; background:var(--cream-dark); }
+  .letters-grid { max-width:760px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; }
+  .envelope-card { background:#fff; border:1px solid var(--cream-dark); padding:2rem; text-align:center; cursor:pointer; transition:transform .3s ease; overflow:hidden; }
+  .envelope-card:hover { transform:translateY(-4px); }
+  .envelope-card.locked .letter-inner { display:none; }
+  .envelope-card.unlocked .envelope-visual { display:none; }
+  .envelope-card.unlocked .letter-inner { display:block; }
+  .envelope-icon { font-size:3rem; display:block; margin-bottom:1rem; }
+  .envelope-label { font-family:'DM Sans',sans-serif; font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:.5rem; }
+  .envelope-hint { font-family:'Lora',serif; font-size:.88rem; font-style:italic; color:var(--ink-soft); line-height:1.6; }
+  .open-label { font-family:'DM Sans',sans-serif; font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; color:rgba(0,0,0,.25); margin-top:1rem; }
+  .letter-inner { text-align:left; }
+  .li-heading { font-family:'Playfair Display',serif; font-size:1.05rem; font-style:italic; font-weight:600; color:var(--gold); margin-bottom:.75rem; text-align:center; }
+  .li-body { font-family:'Lora',serif; font-size:.88rem; line-height:1.9; color:var(--ink-soft); margin-bottom:1rem; }
+  .li-body p { margin-bottom:.85rem; }
+  .li-sig { font-family:'Playfair Display',serif; font-size:.95rem; font-style:italic; color:var(--gold); }
+  .close-btn { display:block; margin:.75rem auto 0; background:transparent; border:1px solid var(--cream-dark); font-family:'DM Sans',sans-serif; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); padding:.4rem 1rem; cursor:pointer; }
+  .close-btn:hover { background:var(--cream-dark); }
+
+  /* FOOTER */
+  .footer { background:var(--ink); padding:4rem 2rem; text-align:center; }
+  .footer-sunflower { font-size:3rem; display:block; margin-bottom:1rem; animation:sway 3s ease-in-out infinite; }
+  .footer-text { font-family:'Playfair Display',serif; font-size:1.15rem; font-style:italic; color:var(--gold-light); line-height:1.7; max-width:420px; margin:0 auto 1rem; }
+  .footer-sig { font-family:'DM Sans',sans-serif; font-size:.75rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.25); }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:1} }
+  @keyframes sway { 0%,100%{transform:rotate(-5deg)} 50%{transform:rotate(5deg)} }
+
+  @media(max-width:600px){
+    .letter-wrap{padding:2rem 1.5rem}
+    .work-card{grid-template-columns:1fr}
+    .work-thumb{width:100%;height:120px;min-height:unset}
+    .timeline::before{left:22px}
+    .timeline-step{grid-template-columns:48px 1fr;gap:1rem}
+    .step-dot{width:48px;height:48px;font-size:1.2rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas class="starry-canvas" id="starryCanvas"></canvas>
+  <div class="hero-content">
+    <p class="from-label">A gift from miso · Celebrating April 11th, fashionably late</p>
+    <h1 class="hero-title">Happy Birthday,<br><span>my Sunflower</span> 🌻</h1>
+    <p class="hero-subtitle">Today you don't just look at art.<br>Today, Rana — you walk inside it.</p>
+    <p class="scroll-hint">Scroll to begin your adventure</p>
+    <span class="scroll-arrow"></span>
+  </div>
+</section>
+
+<!-- OPENING LETTER -->
+<section class="letter-section">
+  <div class="letter-wrap">
+    <div class="letter-date">Celebrating April 11th · Written with love by miso</div>
+    <div class="letter-salutation">My Sunflower,</div>
+    <div class="letter-body">
+      <p>There's something I've always loved about the way you look at things — the way you stop mid-sentence when something catches your eye, the way you need to know exactly <em>how</em> and exactly <em>why</em>. You collect facts the way other people collect keepsakes.</p>
+      <p>We're walking into the world of a man who painted 900 works in 10 years and sold exactly one during his lifetime. A man who wrote 800 letters to his brother, and in almost every one of them said <em>"I am working."</em> I thought you'd appreciate that kind of stubborn, obsessive love for what you do.</p>
+      <p>This isn't just a guide to what you're about to see. It's the beginning of a day planned entirely around you — every stop, every letter, every puzzle. You'll figure it out as you go. You always do.</p>
+      <p>Now read everything, and when you're ready — let's go be inside a painting.</p>
+    </div>
+    <div class="letter-sig">— miso 🌻</div>
+  </div>
+</section>
+
+<!-- EXHIBITION GUIDE -->
+<section class="guide-section">
+  <p class="section-label">Beyond Van Gogh · What you'll see</p>
+  <h2 class="section-title">A guide to the works</h2>
+  <div class="section-divider"><div class="divider-gem"></div></div>
+  <div class="intro-quote">
+    This isn't a museum — it's a room where 300 paintings come alive around you, projected floor to ceiling. You walk through them. Here's what to look for.
+  </div>
+  <div class="works-grid">
+
+    <div class="work-card">
+      <div class="work-thumb starry-night-thumb">
+        <svg width="140" height="160" viewBox="0 0 140 160" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 100 Q35 60 60 80 Q85 100 110 55 Q120 40 130 50" stroke="#7fb3e8" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M0 90 Q30 70 55 85 Q80 100 105 65 Q115 50 135 60" stroke="#5a9ad4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <circle cx="90" cy="35" r="12" fill="none" stroke="#f0d060" stroke-width="2.5"/>
+          <circle cx="90" cy="35" r="6" fill="#f0d060" opacity=".8"/>
+          <circle cx="25" cy="25" r="3" fill="#fff" opacity=".8"/>
+          <circle cx="110" cy="20" r="2" fill="#fff" opacity=".6"/>
+          <circle cx="55" cy="15" r="2.5" fill="#fff" opacity=".7"/>
+          <circle cx="130" cy="40" r="2" fill="#f0d060" opacity=".6"/>
+          <rect x="0" y="120" width="140" height="40" fill="#1a2e10"/>
+          <rect x="55" y="70" width="20" height="55" fill="#0d1a08" rx="2"/>
+          <path d="M55 75 Q65 60 75 75" fill="#0d1a08"/>
+        </svg>
+      </div>
+      <div class="work-info">
+        <div class="fun-fact-tag">Fan favorite</div>
+        <div class="work-year">Saint-Rémy · 1889</div>
+        <div class="work-title">The Starry Night</div>
+        <div class="work-desc">Painted from the window of an asylum he'd voluntarily checked into. The village below is imagined — he couldn't see one from his window. The swirling sky visually matches fluid dynamics equations that scientists only formalized in the 20th century.</div>
+        <div class="work-prompt">Stand still and let the sky move around you. Count how many individual brushstroke directions you can spot in a single cloud.</div>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-thumb sunflowers-thumb">
+        <svg width="140" height="160" viewBox="0 0 140 160" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="90" width="100" height="60" rx="4" fill="#d4913a" opacity=".6"/>
+          <circle cx="45" cy="75" r="18" fill="#c47820"/><circle cx="45" cy="75" r="10" fill="#8b4513"/>
+          <circle cx="95" cy="65" r="22" fill="#e8a030"/><circle cx="95" cy="65" r="12" fill="#7a3c10"/>
+          <circle cx="70" cy="55" r="16" fill="#d4901e"/><circle cx="70" cy="55" r="8" fill="#8b4513"/>
+          <line x1="45" y1="93" x2="45" y2="145" stroke="#5a8030" stroke-width="4"/>
+          <line x1="95" y1="87" x2="95" y2="148" stroke="#4a7020" stroke-width="4"/>
+          <line x1="70" y1="71" x2="70" y2="148" stroke="#5a8030" stroke-width="3"/>
+          <ellipse cx="35" cy="115" rx="15" ry="7" fill="#6a9040" transform="rotate(-20 35 115)"/>
+          <ellipse cx="108" cy="110" rx="14" ry="7" fill="#5a8030" transform="rotate(15 108 110)"/>
+        </svg>
+      </div>
+      <div class="work-info">
+        <div class="fun-fact-tag">Science fact</div>
+        <div class="work-year">Arles · 1888–1889</div>
+        <div class="work-title">Sunflowers</div>
+        <div class="work-desc">He painted 7 versions of this series for his friend Gauguin's bedroom. The chrome yellow he used is now known to darken over time — researchers confirmed this in 2011 using X-ray fluorescence. The originals were far more vivid than what we see today.</div>
+        <div class="work-prompt">These were painted in 3 sittings each at incredible speed. Look for the difference between petals he rushed and ones he slowed down for.</div>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-thumb cafe-thumb">
+        <svg width="140" height="160" viewBox="0 0 140 160" xmlns="http://www.w3.org/2000/svg">
+          <rect x="25" y="85" width="90" height="70" fill="#c4900a" opacity=".3"/>
+          <rect x="30" y="80" width="80" height="8" fill="#c49030" rx="1"/>
+          <rect x="45" y="88" width="50" height="60" fill="#b07828" opacity=".5"/>
+          <line x1="70" y1="88" x2="70" y2="155" stroke="#8b5c18" stroke-width="6"/>
+          <circle cx="45" cy="30" r="3" fill="#fff" opacity=".9"/>
+          <circle cx="70" cy="20" r="2.5" fill="#fff" opacity=".7"/>
+          <circle cx="100" cy="32" r="2" fill="#fff" opacity=".8"/>
+          <circle cx="20" cy="45" r="2" fill="#fff" opacity=".6"/>
+          <circle cx="115" cy="25" r="2.5" fill="#fff" opacity=".7"/>
+          <circle cx="55" cy="50" r="1.5" fill="#fff" opacity=".5"/>
+          <rect x="0" y="70" width="35" height="85" fill="#1a1035" opacity=".7"/>
+          <rect x="105" y="60" width="35" height="95" fill="#1a1035" opacity=".7"/>
+        </svg>
+      </div>
+      <div class="work-info">
+        <div class="fun-fact-tag">No black used</div>
+        <div class="work-year">Arles · 1888</div>
+        <div class="work-title">Café Terrace at Night</div>
+        <div class="work-desc">One of his first works painted entirely outdoors at night — by candlelight, with candles literally stuck to his hat brim. He used zero black pigment in the entire painting. Darkness is built entirely from deep blues, greens, and purples.</div>
+        <div class="work-prompt">Find where the warm yellow light meets cold blue cobblestones. That thin line is two completely different color universes touching.</div>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-thumb bedroom-thumb">
+        <svg width="140" height="160" viewBox="0 0 140 160" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="60" width="120" height="90" fill="#3a6fc4" opacity=".4"/>
+          <rect x="15" y="100" width="50" height="50" fill="#5a8dd9" rx="2"/>
+          <rect x="75" y="100" width="50" height="50" fill="#5a8dd9" rx="2"/>
+          <rect x="55" y="95" width="30" height="8" fill="#4a7fc9" rx="1"/>
+          <rect x="20" y="70" width="40" height="50" fill="#7aa0d9" opacity=".6" rx="2"/>
+          <rect x="80" y="75" width="40" height="45" fill="#7aa0d9" opacity=".6" rx="2"/>
+          <rect x="40" y="55" width="15" height="40" fill="#6b8fc0" rx="1"/>
+          <rect x="85" y="50" width="15" height="45" fill="#6b8fc0" rx="1"/>
+          <path d="M10 60 L70 40 L130 60" fill="#4a70b0" opacity=".4"/>
+        </svg>
+      </div>
+      <div class="work-info">
+        <div class="fun-fact-tag">Painted 3 times</div>
+        <div class="work-year">Arles · 1888</div>
+        <div class="work-title">The Bedroom</div>
+        <div class="work-desc">He painted this room three times. Colors were chosen deliberately to convey rest. He wrote to Theo: "The walls are pale violet. The floor is of red tiles. The wood of the bed — fresh butter yellow." Modern X-ray analysis found the walls were originally lilac, now faded entirely to blue.</div>
+        <div class="work-prompt">Notice nothing in this room is perfectly straight. Every line tilts. He did this intentionally to suggest comfort — a room that has settled into itself.</div>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-thumb irises-thumb">
+        <svg width="140" height="160" viewBox="0 0 140 160" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="110" width="140" height="50" fill="#3a5830" opacity=".8"/>
+          <ellipse cx="35" cy="100" rx="18" ry="25" fill="#4a5c9a" opacity=".8" transform="rotate(-10 35 100)"/>
+          <ellipse cx="65" cy="85" rx="20" ry="28" fill="#3d4e8a" opacity=".9" transform="rotate(5 65 85)"/>
+          <ellipse cx="100" cy="92" rx="18" ry="25" fill="#5a6aaa" opacity=".8" transform="rotate(-5 100 92)"/>
+          <ellipse cx="120" cy="105" rx="15" ry="20" fill="#e8e8f0" opacity=".85" transform="rotate(10 120 105)"/>
+          <line x1="35" y1="125" x2="35" y2="155" stroke="#4a7c3f" stroke-width="3"/>
+          <line x1="65" y1="113" x2="65" y2="158" stroke="#4a7c3f" stroke-width="3"/>
+          <line x1="100" y1="117" x2="100" y2="158" stroke="#4a7c3f" stroke-width="3"/>
+          <ellipse cx="80" cy="145" rx="20" ry="7" fill="#6a9a50" transform="rotate(10 80 145)"/>
+        </svg>
+      </div>
+      <div class="work-info">
+        <div class="fun-fact-tag">Most expensive ever (1987)</div>
+        <div class="work-year">Saint-Rémy · 1889</div>
+        <div class="work-title">Irises</div>
+        <div class="work-desc">Painted one month after arriving at the asylum. Sold in 1987 for $53.9M — the highest price ever paid for a painting at the time. One solitary white iris stands alone in the violet cluster. He never explained it. It remains one of the most debated details in all of art history.</div>
+        <div class="work-prompt">Find the one white iris. What do you think it means? He left it completely unexplained — it's yours to interpret.</div>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-thumb wheatfield-thumb">
+        <svg width="140" height="160" viewBox="0 0 140 160" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="140" height="70" fill="#2a3a7a"/>
+          <path d="M0 70 Q35 55 70 65 Q105 75 140 60 L140 160 L0 160Z" fill="#c4a235"/>
+          <path d="M0 80 Q35 65 70 75 Q105 85 140 70 L140 160 L0 160Z" fill="#d4b848"/>
+          <path d="M0 95 Q35 80 70 88 Q105 96 140 82 L140 160 L0 160Z" fill="#b8922a"/>
+          <path d="M50 90 L60 50" stroke="#111" stroke-width="3" fill="none"/>
+          <path d="M55 50 L60 50 L65 50" stroke="#111" stroke-width="2.5" fill="none"/>
+          <path d="M70 85 L80 45" stroke="#111" stroke-width="3" fill="none"/>
+          <path d="M75 45 L80 45 L85 44" stroke="#111" stroke-width="2.5" fill="none"/>
+          <path d="M100 92 L108 52" stroke="#111" stroke-width="3" fill="none"/>
+          <path d="M104 52 L108 52 L113 51" stroke="#111" stroke-width="2.5" fill="none"/>
+        </svg>
+      </div>
+      <div class="work-info">
+        <div class="fun-fact-tag">Final weeks</div>
+        <div class="work-year">Auvers-sur-Oise · 1890</div>
+        <div class="work-title">Wheat Field with Crows</div>
+        <div class="work-desc">One of his final works. Three paths diverge into a wheat field — none leads anywhere. Crows fly toward the viewer. For 80 years it was called a "suicide note in paint." Then historians found a letter proving it was painted during a relatively hopeful week. Context changes everything.</div>
+        <div class="work-prompt">It's panoramic like a cinema screen. Stand in the center of the projection. Which path would you walk?</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TRIVIA -->
+<section class="trivia-section">
+  <p class="section-label" style="color:var(--gold-light)">For the curious one</p>
+  <h2 class="section-title" style="color:#fff">The science of Van Gogh</h2>
+  <div class="section-divider"><div class="divider-gem"></div></div>
+  <div class="trivia-grid">
+    <div class="trivia-card">
+      <div class="trivia-number">863</div>
+      <div class="trivia-label">Letters written</div>
+      <div class="trivia-text">He wrote 863 letters in his lifetime — mostly to his brother Theo. Published posthumously, they're considered one of the most important art documents ever. He described colors like recipes: "a green like a warm black."</div>
+    </div>
+    <div class="trivia-card">
+      <div class="trivia-number">1</div>
+      <div class="trivia-label">Paintings sold alive</div>
+      <div class="trivia-text">Exactly one painting sold during his lifetime: The Red Vineyard. Today his works fetch $50–150M. The Starry Night is not for sale — MoMA has held it since 1941 under a condition it never be auctioned.</div>
+    </div>
+    <div class="trivia-card">
+      <div class="trivia-number">37</div>
+      <div class="trivia-label">Age at death</div>
+      <div class="trivia-text">He only started painting at 27. In 10 years he produced 900 paintings and 1,100 drawings. The pace was so intense that historians believe he sometimes completed entire works in a single sitting.</div>
+    </div>
+    <div class="trivia-card">
+      <div class="trivia-number">∞</div>
+      <div class="trivia-label">Turbulence in the sky</div>
+      <div class="trivia-text">In 2006, physicists showed the swirls in The Starry Night match the mathematical patterns of turbulent flow — a concept not formalized until 1941. Van Gogh painted fluid dynamics equations by eye, in 1889, while institutionalized.</div>
+    </div>
+    <div class="trivia-card">
+      <div class="trivia-number">🟡</div>
+      <div class="trivia-label">Yellow obsession</div>
+      <div class="trivia-text">He was obsessed with yellow. Researchers believe he may have had xanthopsia — a side effect of digitalis medication that makes yellow appear startlingly vivid. His art may literally be a record of his altered perception.</div>
+    </div>
+    <div class="trivia-card">
+      <div class="trivia-number">10</div>
+      <div class="trivia-label">Years. 900 works.</div>
+      <div class="trivia-text">He worked with such frantic urgency that he often skipped meals and slept beside wet canvases. He once wrote: "I have a terrible lucidity at moments when nature is so beautiful. I am not conscious of myself any more."</div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVENTURE MAP -->
+<section class="adventure-section">
+  <p class="section-label">Today's plan</p>
+  <h2 class="section-title">Your adventure map</h2>
+  <div class="section-divider"><div class="divider-gem"></div></div>
+  <div class="timeline">
+
+    <div class="timeline-step">
+      <div class="step-dot art">🎨</div>
+      <div class="step-content">
+        <div class="step-tag">Stop 1 · The main event</div>
+        <div class="step-name">Beyond Van Gogh</div>
+        <div class="step-desc">District 5 by Marakez · Enter through Gate B · 60–75 minutes. You're not watching art. You're inside it. The Starry Night surrounds you on all four walls and the floor. Let it.</div>
+      </div>
+    </div>
+
+    <div class="timeline-step">
+      <div class="step-dot food">🍽️</div>
+      <div class="step-content">
+        <div class="step-tag">Stop 2 · Dinner + coffee</div>
+        <div class="step-name">What are you craving?</div>
+        <div class="step-desc">Take the quiz below to figure out where we're eating. Your answers decide the restaurant. Letter #1 will be waiting at your table — don't open it until your food arrives.</div>
+      </div>
+    </div>
+
+    <div class="timeline-step">
+      <div class="step-dot mystery">✦</div>
+      <div class="step-content">
+        <div class="step-tag">Stop 3 · The finale · ???</div>
+        <div class="step-name">To be revealed</div>
+        <div class="step-desc">Letter #2 at dinner contains a clue. Solve it, and the last stop reveals itself. All I'll say: bring a jacket. It's cold where you're going. In Egypt. In April. Somehow.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CRAVING QUIZ -->
+<section class="quiz-section">
+  <p class="section-label">The dinner question</p>
+  <h2 class="section-title">What is Rana craving?</h2>
+  <div class="section-divider"><div class="divider-gem"></div></div>
+
+  <div class="quiz-box">
+    <p class="quiz-intro">Answer honestly. No overthinking. miso will see the result and take you there.</p>
+
+    <div class="tally-bar">
+      <div>
+        <div class="tally-label">Lebanese</div>
+        <div style="display:flex;align-items:baseline;gap:.4rem"><span class="tally-count" id="tally-l">0</span><span class="tally-name">Antakha</span></div>
+      </div>
+      <div class="tally-sep"></div>
+      <div>
+        <div class="tally-label">Western</div>
+        <div style="display:flex;align-items:baseline;gap:.4rem"><span class="tally-count" id="tally-w">0</span><span class="tally-name">Mo Bistro</span></div>
+      </div>
+      <div style="margin-left:auto;font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--ink-soft);letter-spacing:.1em;text-transform:uppercase" id="q-progress">0 of 6 answered</div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="q-block" id="qb1">
+      <div class="q-text">1. It's been a full day. What does your body want right now?</div>
+      <div class="q-options">
+        <button class="q-btn" data-q="1" data-side="l" onclick="pick(this,'1','l')">Something warm, shared, slow</button>
+        <button class="q-btn" data-q="1" data-side="w" onclick="pick(this,'1','w')">Something bold and a little indulgent</button>
+      </div>
+    </div>
+    <div class="quiz-divider"></div>
+
+    <!-- Q2 -->
+    <div class="q-block" id="qb2">
+      <div class="q-text">2. The Starry Night was painted with thick, swirling, layered strokes. Tonight's food should feel…</div>
+      <div class="q-options">
+        <button class="q-btn" data-q="2" data-side="l" onclick="pick(this,'2','l')">Like the swirls — complex, layered, many flavors at once</button>
+        <button class="q-btn" data-q="2" data-side="w" onclick="pick(this,'2','w')">Like a single strong brushstroke — one perfect thing, done right</button>
+      </div>
+    </div>
+    <div class="quiz-divider"></div>
+
+    <!-- Q3 -->
+    <div class="q-block" id="qb3">
+      <div class="q-text">3. Bread basket situation — what's the dream?</div>
+      <div class="q-options">
+        <button class="q-btn" data-q="3" data-side="l" onclick="pick(this,'3','l')">Warm pita with hummus and I will not be rushed</button>
+        <button class="q-btn" data-q="3" data-side="w" onclick="pick(this,'3','w')">Crusty sourdough with butter or I'm going home</button>
+      </div>
+    </div>
+    <div class="quiz-divider"></div>
+
+    <!-- Q4 -->
+    <div class="q-block" id="qb4">
+      <div class="q-text">4. Van Gogh's Sunflowers were painted in bright, almost overwhelming yellow. Your vibe tonight is…</div>
+      <div class="q-options">
+        <button class="q-btn" data-q="4" data-side="l" onclick="pick(this,'4','l')">The yellow — warm, vibrant, a little chaotic, full of life</button>
+        <button class="q-btn" data-q="4" data-side="w" onclick="pick(this,'4','w')">The night sky — deep, rich, dramatic, with a lot going on under the surface</button>
+      </div>
+    </div>
+    <div class="quiz-divider"></div>
+
+    <!-- Q5 -->
+    <div class="q-block" id="qb5">
+      <div class="q-text">5. Protein of the evening?</div>
+      <div class="q-options">
+        <button class="q-btn" data-q="5" data-side="l" onclick="pick(this,'5','l')">Grilled chicken, kofta, or something with herbs and lemon</button>
+        <button class="q-btn" data-q="5" data-side="w" onclick="pick(this,'5','w')">Steak, brisket, or something that took 6 hours to cook</button>
+      </div>
+    </div>
+    <div class="quiz-divider"></div>
+
+    <!-- Q6 -->
+    <div class="q-block" id="qb6">
+      <div class="q-text">6. Final question. Be honest. What does your gut actually want?</div>
+      <div class="q-options">
+        <button class="q-btn" data-q="6" data-side="l" onclick="pick(this,'6','l')">Lebanese. I want mezze and I want to linger.</button>
+        <button class="q-btn" data-q="6" data-side="w" onclick="pick(this,'6','w')">Western. I want something I'll still be thinking about tomorrow.</button>
+      </div>
+    </div>
+
+    <button class="reveal-btn-main" id="revealQuizBtn" onclick="revealResult()" style="display:none">Show me where we're eating ↓</button>
+
+    <div class="reveal-result" id="quiz-result">
+      <div class="result-card" id="result-lebanese" style="display:none">
+        <span class="result-emoji">🌿</span>
+        <div class="result-name">Antakha</div>
+        <div class="result-tag">Lebanese · District 5</div>
+        <div class="result-desc">Warm mezze, fresh pita, hummus, grilled meats with herbs and lemon. The kind of place where you order too much and don't regret a single thing. Dinner and coffee in the same beautiful spot.</div>
+        <div class="result-info">📍 District 5 by Marakez · Reservations recommended</div>
+        <button class="reset-btn" onclick="resetQuiz()">retake the quiz</button>
+      </div>
+      <div class="result-card" id="result-mobistro" style="display:none">
+        <span class="result-emoji">🥩</span>
+        <div class="result-name">Mo Bistro</div>
+        <div class="result-tag">Western · District 5</div>
+        <div class="result-desc">Eclectic and bold. Known for their flank steak, bone marrow, and a menu that never plays it safe. A beloved Cairo classic since 2002 — the kind of meal you'll still be talking about on the drive home.</div>
+        <div class="result-info">📍 District 5 by Marakez · 01200007333</div>
+        <button class="reset-btn" onclick="resetQuiz()">retake the quiz</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SEALED LETTERS -->
+<section class="letters-section">
+  <p class="section-label">Your letters</p>
+  <h2 class="section-title">Open only when told</h2>
+  <div class="section-divider"><div class="divider-gem"></div></div>
+
+  <div class="letters-grid">
+
+    <!-- Letter 1: At dinner -->
+    <div class="envelope-card locked" id="card1">
+      <div class="envelope-visual">
+        <span class="envelope-icon">✉️</span>
+        <div class="envelope-label">Letter 1 · Open at dinner</div>
+        <div class="envelope-hint">Wait until your food has arrived and you're sitting comfortably. Not before.</div>
+        <div class="open-label">↓ tap to open</div>
+      </div>
+      <div class="letter-inner">
+        <div class="li-heading">Letter I · From miso</div>
+        <div class="li-body">
+          <p>We just walked through a painting, and you were still the most breath taking work of art I have ever seen.</p>
+          <p>Van Gogh used to eat his yellow paint sometimes. Not because he was hungry. Because he thought it would put the yellow inside him — make him feel warm from within.</p>
+          <p>The thought of you in this world with me makes me warm inside, to know I will always have a home to go to no matter what.</p>
+          <p>I hope today puts something beautiful inside you. Not paint — just light. The Starry Night kind.</p>
+        </div>
+        <div class="li-sig">— miso 🌻</div>
+        <div style="margin-top:1.25rem;padding:1rem;background:var(--gold-pale);border-left:3px solid var(--gold);">
+          <div style="font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem">Clue for the final stop</div>
+          <div style="font-family:'Lora',serif;font-size:.85rem;line-height:1.7;color:var(--ink-soft);font-style:italic">"I painted the night sky because I couldn't reach the stars. Tonight you will stand on something that tries to touch them — a surface that reflects light and makes the world feel weightless. Egypt's largest of its kind. Built right beside where your adventure began. Bring a jacket, my sunflower. It's cold where we're going."</div>
+        </div>
+        <button class="close-btn" onclick="closeLetter('card1')">↑ seal</button>
+      </div>
+    </div>
+
+    <!-- Letter 2: At the rink -->
+    <div class="envelope-card locked" id="card2">
+      <div class="envelope-visual">
+        <span class="envelope-icon">✉️</span>
+        <div class="envelope-label">Letter 2 · Open at the final stop</div>
+        <div class="envelope-hint">You'll know when you get there. Before you take a single step — read this first.</div>
+        <div class="open-label">↓ tap to open</div>
+      </div>
+      <div class="letter-inner">
+        <div class="li-heading">Letter II · Happy Birthday, my Sunflower</div>
+        <div class="li-body">
+          <p>My sweet sister, everyday I am reminded of how blessed I am to have you in my life. It's something I will never take for granted. Even if you take forever to answer my calls you're still always there when it truly matters.</p>
+          <p>I hope today made you feel happier and showed you how much you actually mean to me. I don't think I ever cared about someone more than I cared about you.</p>
+          <p>I have the utmost faith in you, that you are the brightest star in the lives of everyone you know. You're so much more than what you give yourself credit for, and I know that even with all the troubles you face that one day you will look back at them as the stepping stones to where you were always meant to reach.</p>
+          <p>My sweet beautiful sister — know that you are already a daughter worth boasting about, a friend more reliable than the whole world by your side, a lover with the biggest heart I know, a sister I will always be proud to call mine, and most importantly you are you — the most important person in your life and a spirit so bright the sun dulls in your light.</p>
+          <p>I hope today was not just fun, though I hope it's fun. I want you to feel deeply. To carry this day somewhere quiet inside you and take it out on bad days when you need it.</p>
+          <p>You're one of the most remarkable people I know. The way your brain works. The way you love things with your whole chest. The way you're simultaneously the loudest person in the room and the one who notices everything quietly from the corner.</p>
+          <p>Happy birthday, Rana. My sunflower. Have the sweetest 23 even if it's a prime number.</p>
+          <p><em>Go skate like the ice is yours.</em></p>
+        </div>
+        <div class="li-sig">— miso 🌻🌻🌻</div>
+        <button class="close-btn" onclick="closeLetter('card2')">↑ seal</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer-sunflower">🌻</span>
+  <p class="footer-text">"What would life be if we had no courage to attempt anything?"<br>— Vincent van Gogh</p>
+  <p class="footer-sig">Made with love by miso · For Rana · Celebrating April 11th</p>
+</footer>
+
+<script>
+// STARRY NIGHT CANVAS
+const canvas = document.getElementById('starryCanvas');
+const ctx = canvas.getContext('2d');
+function resize(){canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight;}
+resize();
+window.addEventListener('resize',resize);
+const stars=Array.from({length:130},()=>({x:Math.random(),y:Math.random()*.72,r:Math.random()*2+.5,phase:Math.random()*Math.PI*2,speed:Math.random()*.02+.005}));
+const swirls=Array.from({length:9},(_,i)=>({cx:.08+i*.11,cy:.12+Math.sin(i*1.4)*.1,rx:40+Math.random()*70,ry:18+Math.random()*28,phase:Math.random()*Math.PI*2,speed:.003+Math.random()*.002}));
+let t=0;
+function draw(){
+  const W=canvas.width,H=canvas.height;
+  ctx.clearRect(0,0,W,H);
+  const grd=ctx.createLinearGradient(0,0,0,H);
+  grd.addColorStop(0,'#08102a');grd.addColorStop(.55,'#1a2744');grd.addColorStop(1,'#0c160a');
+  ctx.fillStyle=grd;ctx.fillRect(0,0,W,H);
+  swirls.forEach(s=>{
+    s.phase+=s.speed;
+    ctx.beginPath();
+    ctx.ellipse(s.cx*W,s.cy*H+Math.sin(s.phase)*10,s.rx,s.ry,s.phase*.12,0,Math.PI*2);
+    ctx.strokeStyle=`rgba(90,140,210,${.05+Math.sin(s.phase)*.025})`;
+    ctx.lineWidth=2.5;ctx.stroke();
+  });
+  stars.forEach(s=>{
+    s.phase+=s.speed;
+    const a=.3+Math.sin(s.phase)*.5;
+    const g=ctx.createRadialGradient(s.x*W,s.y*H,0,s.x*W,s.y*H,s.r*4);
+    g.addColorStop(0,`rgba(255,240,170,${a})`);g.addColorStop(1,'transparent');
+    ctx.fillStyle=g;ctx.beginPath();ctx.arc(s.x*W,s.y*H,s.r*4,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle=`rgba(255,255,255,${Math.min(a+.3,1)})`;
+    ctx.beginPath();ctx.arc(s.x*W,s.y*H,s.r,0,Math.PI*2);ctx.fill();
+  });
+  const mp=1+Math.sin(t*.018)*.05;
+  const mg=ctx.createRadialGradient(W*.74,H*.17,2,W*.74,H*.17,34*mp);
+  mg.addColorStop(0,'rgba(255,238,140,.92)');mg.addColorStop(.45,'rgba(255,215,90,.35)');mg.addColorStop(1,'transparent');
+  ctx.fillStyle=mg;ctx.beginPath();ctx.arc(W*.74,H*.17,34*mp,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='rgba(255,243,170,.96)';ctx.beginPath();ctx.arc(W*.74,H*.17,13,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='rgba(4,12,4,.88)';
+  ctx.beginPath();ctx.moveTo(W*.07,H);ctx.quadraticCurveTo(W*.05,H*.38,W*.085,H*.13);ctx.quadraticCurveTo(W*.115,H*.38,W*.135,H);ctx.fill();
+  const gr=ctx.createLinearGradient(0,H*.82,0,H);
+  gr.addColorStop(0,'#0c1807');gr.addColorStop(1,'#050e05');
+  ctx.fillStyle=gr;ctx.fillRect(0,H*.82,W,H*.18);
+  t++;requestAnimationFrame(draw);
+}
+draw();
+
+// QUIZ LOGIC
+const answers={};
+function pick(btn,q,side){
+  document.querySelectorAll(`[data-q="${q}"]`).forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  answers[q]=side;
+  const answered=Object.keys(answers).length;
+  document.getElementById('q-progress').textContent=`${answered} of 6 answered`;
+  let l=0,w=0;
+  Object.values(answers).forEach(v=>{v==='l'?l++:w++;});
+  document.getElementById('tally-l').textContent=l;
+  document.getElementById('tally-w').textContent=w;
+  if(answered===6){
+    document.getElementById('revealQuizBtn').style.display='block';
+  }
+}
+function revealResult(){
+  const l=parseInt(document.getElementById('tally-l').textContent);
+  const w=parseInt(document.getElementById('tally-w').textContent);
+  document.getElementById('quiz-result').classList.add('visible');
+  if(l>=w){
+    document.getElementById('result-lebanese').style.display='block';
+    document.getElementById('result-mobistro').style.display='none';
+  } else {
+    document.getElementById('result-mobistro').style.display='block';
+    document.getElementById('result-lebanese').style.display='none';
+  }
+  document.getElementById('revealQuizBtn').style.display='none';
+  document.getElementById('quiz-result').scrollIntoView({behavior:'smooth',block:'center'});
+}
+function resetQuiz(){
+  Object.keys(answers).forEach(k=>delete answers[k]);
+  document.querySelectorAll('.q-btn').forEach(b=>b.classList.remove('selected'));
+  document.getElementById('tally-l').textContent='0';
+  document.getElementById('tally-w').textContent='0';
+  document.getElementById('q-progress').textContent='0 of 6 answered';
+  document.getElementById('quiz-result').classList.remove('visible');
+  document.getElementById('result-lebanese').style.display='none';
+  document.getElementById('result-mobistro').style.display='none';
+  document.getElementById('revealQuizBtn').style.display='none';
+}
+
+// LETTER OPEN/CLOSE
+function closeLetter(id){const c=document.getElementById(id);c.classList.remove('unlocked');c.classList.add('locked');}
+document.querySelectorAll('.envelope-card').forEach(card=>{
+  card.addEventListener('click',function(e){
+    if(this.classList.contains('locked')&&!e.target.classList.contains('close-btn')){
+      this.classList.remove('locked');this.classList.add('unlocked');
+    }
+  });
+});
+
+// SCROLL REVEAL
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});
+},{threshold:.1});
+document.querySelectorAll('.work-card,.trivia-card,.timeline-step,.envelope-card').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(24px)';
+  el.style.transition='opacity .6s ease, transform .6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
